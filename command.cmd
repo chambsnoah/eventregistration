@@ -1,0 +1,1 @@
+spring init --build=gradle --java-version=1.8 --package=ca.mcgill.ecse321.eventregistration --name=EventRegistration --dependencies=web,data-jpa,postgresql EventRegistration-Backend

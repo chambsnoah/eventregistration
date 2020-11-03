@@ -30,6 +30,7 @@ public class EventRegistrationRestController {
 
 	@Autowired
 	private EventRegistrationService service;
+
 	@GetMapping(value = { "/persons", "/persons/" })
 	public List<PersonDto> getAllPersons() {
 		return service.getAllPersons().stream().map(p -> convertToDto(p)).collect(Collectors.toList());
@@ -40,6 +41,7 @@ public class EventRegistrationRestController {
 		Person person = service.createPerson(name);
 		return convertToDto(person);
 	}
+	
 	@PostMapping(value = { "/events/{name}", "/events/{name}/" })
 	public EventDto createEvent(@PathVariable("name") String name, @RequestParam Date date,
 	@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME, pattern = "HH:mm") LocalTime startTime,
@@ -120,4 +122,5 @@ public class EventRegistrationRestController {
 		}
 		return events;
 	}
+	
 }

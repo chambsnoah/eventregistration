@@ -47,11 +47,13 @@ public class TestEventRegistrationPersistence {
 		Person person = new Person();
 		// First example for attribute save/load
 		person.setName(name);
+		
 		personRepository.save(person);
 
 		person = null;
 
 		person = personRepository.findPersonByName(name);
+
 		assertNotNull(person);
 		assertEquals(name, person.getName());
 	}

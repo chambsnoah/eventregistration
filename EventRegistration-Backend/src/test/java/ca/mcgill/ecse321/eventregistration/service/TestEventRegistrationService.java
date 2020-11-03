@@ -173,6 +173,8 @@ public class TestEventRegistrationService {
 		event = service.createEvent(nameE, eventDate, startTime, endTime);
 		lenient().when(personDao.existsById(anyString())).thenReturn(true);
 		lenient().when(eventDao.existsById(anyString())).thenReturn(true);
+		
+		
 		Registration registration = null;
 		try {
 			registration = service.register(person, event);

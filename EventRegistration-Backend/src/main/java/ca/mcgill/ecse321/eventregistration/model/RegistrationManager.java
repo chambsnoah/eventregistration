@@ -8,46 +8,46 @@ import javax.persistence.Id;
 
 @Entity
 public class RegistrationManager{
-private Set<Person> persons;
+private Set<Person> person;
 
 @OneToMany(cascade={CascadeType.ALL})
-public Set<Person> getPersons() {
-   return this.persons;
+public Set<Person> getPerson() {
+   return this.person;
 }
 
-public void setPersons(Set<Person> personss) {
-   this.persons = personss;
+public void setPerson(Set<Person> persons) {
+   this.person = persons;
 }
 
-private Set<Registration> registrations;
+private Set<Registration> registration;
 
 @OneToMany(cascade={CascadeType.ALL})
-public Set<Registration> getRegistrations() {
-   return this.registrations;
+public Set<Registration> getRegistration() {
+   return this.registration;
 }
 
-public void setRegistrations(Set<Registration> registrationss) {
-   this.registrations = registrationss;
+public void setRegistration(Set<Registration> registrations) {
+   this.registration = registrations;
 }
 
-private Set<Event> events;
+private Set<Event> event;
 
 @OneToMany(cascade={CascadeType.ALL})
-public Set<Event> getEvents() {
-   return this.events;
+public Set<Event> getEvent() {
+   return this.event;
 }
 
-public void setEvents(Set<Event> eventss) {
-   this.events = eventss;
+public void setEvent(Set<Event> events) {
+   this.event = events;
 }
 
-private int id;
+private Integer id;
 
-public void setId(int value) {
+public void setId(Integer value) {
 this.id = value;
     }
 @Id
-public int getId() {
+public Integer getId() {
 return this.id;
        }
    }

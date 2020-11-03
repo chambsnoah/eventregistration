@@ -27,28 +27,6 @@ public class EventRegistrationService {
 	RegistrationRepository registrationRepository;
 
 	@Transactional
-	public List<Person> getAllPersons() {
-		return toList(personRepository.findAll());
-	}
-
-	@Transactional
-	public List<Event> getAllEvents() {
-		return toList(eventRepository.findAll());
-	}
-
-	@Transactional
-	public List<Registration> getAllRegistrations(){
-		return toList(registrationRepository.findAll());
-	}
-
-	private <T> List<T> toList(Iterable<T> iterable){
-		List<T> resultList = new ArrayList<T>();
-		for (T t : iterable) {
-			resultList.add(t);
-		}
-		return resultList;
-	}
-	@Transactional
 	public Person createPerson(String name) {
 		if (name == null || name.trim().length() == 0) {
 			throw new IllegalArgumentException("Person name cannot be empty!");
@@ -68,6 +46,10 @@ public class EventRegistrationService {
 	    return person;
 	}
 
+	@Transactional
+	public List<Person> getAllPersons() {
+		return toList(personRepository.findAll());
+	}
 	@Transactional
 	public Event getEvent(String name) {
 	    if (name == null || name.trim().length() == 0) {
@@ -108,6 +90,11 @@ public class EventRegistrationService {
 	    event.setEndTime(endTime);
 	    eventRepository.save(event);
 	    return event;
+	}
+
+	@Transactional
+	public List<Event> getAllEvents() {
+		return toList(eventRepository.findAll());
 	}
 
 	@Transactional
@@ -153,4 +140,17 @@ public class EventRegistrationService {
 	    }
 	    return eventsAttendedByPerson;
 	}
+	@Transactional
+	public List<Registration> getAllRegistrations(){
+		return toList(registrationRepository.findAll());
+	}
+
+	private <T> List<T> toList(Iterable<T> iterable){
+		List<T> resultList = new ArrayList<T>();
+		for (T t : iterable) {
+			resultList.add(t);
+		}
+		return resultList;
+	}
+
 }
